@@ -34,12 +34,10 @@ while is_running:
         snake.extend_snake()
 
     if abs(snake.head.xcor()) > 280 or abs(snake.head.ycor()) > 280:
-        scoreboard.game_over()
-        is_running = False
+        scoreboard.restart_game()
 
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            is_running = False
-            scoreboard.game_over()
+            scoreboard.restart_game()
 
 my_screen.exitonclick()
